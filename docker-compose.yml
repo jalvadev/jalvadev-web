@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+    database:
+        container_name: jalvadev_db
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=jalvadev_admin
+            - POSTGRES_PASSWORD=admin123#
+            - POSTGRES_DB=jalvadev
+        volumes:
+            - "C:/Data/jalvadev:/var/lib/postgresql/data"
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U jalvadev_admin -d jalvadev"]
+            interval: 10s
+            retries: 3
+            start_period: 30s
+            timeout: 30s
