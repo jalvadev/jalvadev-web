@@ -5,9 +5,11 @@ services:
         image: postgres:latest
         ports:
             - 5432:5432
+        secrets:
+            - db-password
         environment:
             - POSTGRES_USER=jalvadev_admin
-            - POSTGRES_PASSWORD=/run/secrets/db-password
+            - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
             - POSTGRES_DB=jalvadev
         volumes:
             - "C:/Data/jalvadev:/var/lib/postgresql/data"
