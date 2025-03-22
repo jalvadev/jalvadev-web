@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\jalvadev-back.props" />
+</Project>

@@ -29,5 +29,11 @@ namespace jalvadev_back.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("[action]")]
+        public String Hello()
+        {
+            return "OTRO";
+        }
     }
 }

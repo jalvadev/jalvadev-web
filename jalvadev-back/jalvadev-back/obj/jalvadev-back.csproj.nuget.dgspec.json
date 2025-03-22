@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alvar\\source\\repos\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj": {}
+    "C:\\Users\\alvar\\source\\repos\\jalvadev\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alvar\\source\\repos\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj": {
+    "C:\\Users\\alvar\\source\\repos\\jalvadev\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alvar\\source\\repos\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj",
+        "projectUniqueName": "C:\\Users\\alvar\\source\\repos\\jalvadev\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj",
         "projectName": "jalvadev-back",
-        "projectPath": "C:\\Users\\alvar\\source\\repos\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj",
+        "projectPath": "C:\\Users\\alvar\\source\\repos\\jalvadev\\jalvadev-back\\jalvadev-back\\jalvadev-back.csproj",
         "packagesPath": "C:\\Users\\alvar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alvar\\source\\repos\\jalvadev-back\\jalvadev-back\\obj\\",
+        "outputPath": "C:\\Users\\alvar\\source\\repos\\jalvadev\\jalvadev-back\\jalvadev-back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
