@@ -1,3 +1,4 @@
+using jalvadev_back.Repositories.Database;
 using Microsoft.AspNetCore.Mvc;
 
 namespace jalvadev_back.Controllers
@@ -12,10 +13,11 @@ namespace jalvadev_back.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly IConnectionProvider _connectionProvider;
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConnectionProvider connectionProvider)
         {
             _logger = logger;
+            _connectionProvider = connectionProvider;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -33,6 +35,7 @@ namespace jalvadev_back.Controllers
         [HttpGet("[action]")]
         public String Hello()
         {
+            var con = _connectionProvider.GetConnection();
             return "OTRO";
         }
     }
