@@ -10,6 +10,6 @@ docker compose watch
 docker compose build
 ```
 
-# Configuraton
+# Configuration
 
 Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los appsettings.json y el docker-compose.yml esperan leer ese archivo en esta carpeta.  
