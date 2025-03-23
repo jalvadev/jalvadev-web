@@ -25,6 +25,8 @@ services:
             context: ./jalvadev-back
         ports:
             - 8080:8080
+        environment:
+            - DOTNET_ENVIRONMENT=Staging
         depends_on:
             database:
                 condition: service_healthy

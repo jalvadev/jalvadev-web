@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("jalvadev-back")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a18cef6fd2ca5d32b98c66a153fee885c414506")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4406d7a48ac69d1fd6ad68085e5d86da8af13e56")]
 [assembly: System.Reflection.AssemblyProductAttribute("jalvadev-back")]
 [assembly: System.Reflection.AssemblyTitleAttribute("jalvadev-back")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

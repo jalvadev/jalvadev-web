@@ -14,6 +14,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    Console.WriteLine("Development Env.");
+}
+
+if(app.Environment.IsStaging())
+{
+    Console.WriteLine("Staging Env.");
 }
 
 app.UseHttpsRedirection();
