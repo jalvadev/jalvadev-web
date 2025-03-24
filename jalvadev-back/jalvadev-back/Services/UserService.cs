@@ -22,7 +22,7 @@ namespace jalvadev_back.Services
             if (!userResult.IsSuccess)
                 return Result<UserDTO>.Failure(userResult.Message);
 
-            UserDTO userDTO = _mapper.Map<UserDTO>(userResult);
+            UserDTO userDTO = _mapper.Map<UserDTO>(userResult.Value);
 
             return Result<UserDTO>.Success(userDTO);
         }
