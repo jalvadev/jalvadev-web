@@ -3,6 +3,8 @@ using jalvadev_back.Repositories.Database;
 using jalvadev_back.Repositories.Interfaces;
 using jalvadev_back.Services;
 using jalvadev_back.Services.Interfaces;
+using NLog;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,18 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // CONFIGURATION: AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// CONNECTION STRING FOR NLOG.
+string filePath = builder.Configuration["PasswordsFile"];
+if (!File.Exists(filePath))
+    throw new Exception("");
+
+string password = File.ReadAllText(filePath);
+
+LogManager.Configuration.Variables["pass"] = password;
+
+builder.Logging.ClearProviders();
+builder.Host.UseNLog();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
