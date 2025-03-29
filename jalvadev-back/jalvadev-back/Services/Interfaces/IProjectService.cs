@@ -7,6 +7,6 @@ namespace jalvadev_back.Services.Interfaces
     {
         public Result<ProjectDTO> GetProjectById(int id);
 
-        public Result<List<ProjectDTO>> GetAllProjects();
+        public Result<List<ProjectDTO>> GetAllProjectsByUserId(int userId);
     }
 }

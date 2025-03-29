@@ -13,10 +13,10 @@ namespace jalvadev_back.Controllers
             _projectService = projectService;
         }
 
-        [HttpGet]
-        public IActionResult List()
+        [HttpGet("user/{userId}")]
+        public IActionResult List(int userId)
         {
-            var result = _projectService.GetAllProjects();
+            var result = _projectService.GetAllProjectsByUserId(userId);
             if (!result.IsSuccess)
                 return BadRequest(result);
 

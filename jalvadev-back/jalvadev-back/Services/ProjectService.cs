@@ -17,9 +17,9 @@ namespace jalvadev_back.Services
             _mapper = mapper;
         }
 
-        public Result<List<ProjectDTO>> GetAllProjects()
+        public Result<List<ProjectDTO>> GetAllProjectsByUserId(int userId)
         {
-            var result = _repository.GetAllProjects();
+            var result = _repository.GetAllProjectsByUserId(userId);
             if (!result.IsSuccess)
                 return Result<List<ProjectDTO>>.Failure(result.Message);
 

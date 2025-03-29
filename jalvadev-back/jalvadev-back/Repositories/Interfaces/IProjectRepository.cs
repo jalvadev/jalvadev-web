@@ -7,6 +7,6 @@ namespace jalvadev_back.Repositories.Interfaces
     {
         public Result<Project> GetProjectById(int id);
 
-        public Result<List<Project>> GetAllProjects();
+        public Result<List<Project>> GetAllProjectsByUserId(int userId);
     }
 }

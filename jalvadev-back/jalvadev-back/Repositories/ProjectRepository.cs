@@ -18,13 +18,16 @@ namespace jalvadev_back.Repositories
             _logger = logger;
         }
 
-        public Result<List<Project>> GetAllProjects()
+        public Result<List<Project>> GetAllProjectsByUserId(int userId)
         {
             try
             {
-                string query = "SELECT id, user_id as UserId, name, image, link, creation_date as CreationDate, update_date as UpdateDate FROM projects;";
+                string query = 
+                    @"SELECT id, user_id as UserId, name, image, link, creation_date as CreationDate, update_date as UpdateDate 
+                    FROM projects
+                    WHERE user_id = @UserId;";
 
-                List<Project> projects = _connection.Query<Project>(query).ToList();
+                List<Project> projects = _connection.Query<Project>(query, new { UserId = userId }).ToList();
 
                 return Result<List<Project>>.Success(projects);
             }
