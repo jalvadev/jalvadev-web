@@ -123,11 +123,17 @@
   <data name="api_error_password_file_not_found" xml:space="preserve">
     <value>Error al cargar el archivo de contraseñas.</value>
   </data>
+  <data name="ui_error_getting_project" xml:space="preserve">
+    <value>Ha ocurrido un error al obtener el proyecto</value>
+  </data>
   <data name="ui_error_getting_tags" xml:space="preserve">
     <value>Ha ocurrido un error al obtener las tags.</value>
   </data>
   <data name="ui_error_getting_user" xml:space="preserve">
     <value>Ha ocurrido un error al obtener el usuario.</value>
+  </data>
+  <data name="ui_error_project_not_found" xml:space="preserve">
+    <value>El proyecto que busca no existe.</value>
   </data>
   <data name="ui_error_tag_not_found" xml:space="preserve">
     <value>La tag que busca no existe.</value>

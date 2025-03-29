@@ -14,7 +14,7 @@ namespace jalvadev_back.Controllers
             _tagService = tagService;
         }
 
-        [HttpGet("/[action]")]
+        [HttpGet]
         public IActionResult List()
         {
             var result = _tagService.GetAllTags();
@@ -24,7 +24,7 @@ namespace jalvadev_back.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var result = _tagService.GetTagById(id);
