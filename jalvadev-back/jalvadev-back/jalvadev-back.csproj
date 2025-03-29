@@ -7,6 +7,7 @@
     <RootNamespace>jalvadev_back</RootNamespace>
     <UserSecretsId>b8e462e7-a606-4d31-9a79-9bdd31680006</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <GenerateResourceDesignerFiles>true</GenerateResourceDesignerFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,12 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.4.0" />
     <PackageReference Include="Npgsql" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Resource.resx">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

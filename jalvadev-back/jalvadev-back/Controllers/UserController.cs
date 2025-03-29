@@ -18,7 +18,6 @@ namespace jalvadev_back.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            _logger.LogInformation("HOllaaaaa");
             var userResult = _userService.GetUserById(1);
             if(!userResult.IsSuccess)
                 return BadRequest(userResult);

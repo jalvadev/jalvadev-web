@@ -2,6 +2,7 @@
 using jalvadev_back.Models;
 using jalvadev_back.Repositories.Database;
 using jalvadev_back.Repositories.Interfaces;
+using jalvadev_back.Resources;
 using jalvadev_back.Utils;
 using Npgsql;
 
@@ -10,9 +11,11 @@ namespace jalvadev_back.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly NpgsqlConnection _connection;
-        public UserRepository(IConnectionProvider connectionProvider)
+        private readonly ILogger<UserRepository> _logger;
+        public UserRepository(IConnectionProvider connectionProvider, ILogger<UserRepository> logger)
         {
             _connection = connectionProvider.GetConnection();
+            _logger = logger;
         }
 
         public Result<User> GetUserById(int id)
@@ -33,12 +36,13 @@ namespace jalvadev_back.Repositories
                 var user = _connection.QueryFirstOrDefault<User>(query, new { Id = id });
 
                 return user == null ?
-                    Result<User>.Failure("User not found.") :
+                    Result<User>.Failure(Resource.ui_error_user_not_found) :
                     Result<User>.Success(user);
             }
             catch (Exception ex)
             {
-                return Result<User>.Failure("Error al conectar con la base de datos.");
+                _logger.LogError($"{Resource.api_error_bd_connection} - {ex.Message}");
+                return Result<User>.Failure(Resource.ui_error_getting_user);
             }
         }
     }

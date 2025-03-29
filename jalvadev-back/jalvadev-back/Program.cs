@@ -1,6 +1,7 @@
 using jalvadev_back.Repositories;
 using jalvadev_back.Repositories.Database;
 using jalvadev_back.Repositories.Interfaces;
+using jalvadev_back.Resources;
 using jalvadev_back.Services;
 using jalvadev_back.Services.Interfaces;
 using NLog;
@@ -19,7 +20,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // CONNECTION STRING FOR NLOG.
 string filePath = builder.Configuration["PasswordsFile"];
 if (!File.Exists(filePath))
-    throw new Exception("");
+    throw new Exception(Resource.api_error_password_file_not_found);
 
 string password = File.ReadAllText(filePath);
 
