@@ -6,5 +6,7 @@ namespace jalvadev_back.Services.Interfaces
     public interface IProjectService
     {
         public Result<ProjectDTO> GetProjectById(int id);
+
+        public Result<List<ProjectDTO>> GetAllProjects();
     }
 }

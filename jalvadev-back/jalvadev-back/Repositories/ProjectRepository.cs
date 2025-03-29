@@ -18,14 +18,33 @@ namespace jalvadev_back.Repositories
             _logger = logger;
         }
 
-
-        public Result<Project> GetProjectById(int id)
+        public Result<List<Project>> GetAllProjects()
         {
             try
             {
                 string query = "SELECT id, user_id as UserId, name, image, link, creation_date as CreationDate, update_date as UpdateDate FROM projects;";
 
-                Project project = _connection.QueryFirstOrDefault<Project>(query);
+                List<Project> projects = _connection.Query<Project>(query).ToList();
+
+                return Result<List<Project>>.Success(projects);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{Resource.api_error_bd_connection} - {ex.Message}");
+                return Result<List<Project>>.Failure(Resource.ui_error_getting_project);
+            }
+        }
+
+        public Result<Project> GetProjectById(int id)
+        {
+            try
+            {
+                string query = 
+                    @"SELECT id, user_id as UserId, name, image, link, creation_date as CreationDate, update_date as UpdateDate 
+                    FROM projects
+                    WHERE id = @Id;";
+
+                Project project = _connection.QueryFirstOrDefault<Project>(query, new { Id = id});
 
                 return project == null ?
                     Result<Project>.Failure(Resource.ui_error_project_not_found) :

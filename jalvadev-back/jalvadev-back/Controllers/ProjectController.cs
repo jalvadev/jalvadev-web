@@ -13,6 +13,16 @@ namespace jalvadev_back.Controllers
             _projectService = projectService;
         }
 
+        [HttpGet]
+        public IActionResult List()
+        {
+            var result = _projectService.GetAllProjects();
+            if (!result.IsSuccess)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

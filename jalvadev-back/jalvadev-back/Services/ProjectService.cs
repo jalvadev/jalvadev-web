@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using jalvadev_back.DTOs;
+using jalvadev_back.Models;
 using jalvadev_back.Repositories.Interfaces;
 using jalvadev_back.Services.Interfaces;
 using jalvadev_back.Utils;
@@ -14,6 +15,17 @@ namespace jalvadev_back.Services
         {
             _repository = repository;
             _mapper = mapper;
+        }
+
+        public Result<List<ProjectDTO>> GetAllProjects()
+        {
+            var result = _repository.GetAllProjects();
+            if (!result.IsSuccess)
+                return Result<List<ProjectDTO>>.Failure(result.Message);
+
+            List<ProjectDTO> projects = _mapper.Map<List<Project>, List<ProjectDTO>>(result.Value);
+
+            return Result<List<ProjectDTO>>.Success(projects);
         }
 
         public Result<ProjectDTO> GetProjectById(int id)
