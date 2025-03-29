@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IConnectionProvider, ConnectionProvider>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 // CONFIGURATION: AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

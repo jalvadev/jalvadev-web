@@ -51,11 +51,27 @@ namespace jalvadev_back.Resources
             }
         }
 
+        public static string ui_error_getting_tags
+        {
+            get
+            {
+                return ResourceManager.GetString("ui_error_getting_tags", resourceCulture);
+            }
+        }
+
         public static string ui_error_user_not_found
         {
             get
             {
                 return ResourceManager.GetString("ui_error_user_not_found", resourceCulture);
+            }
+        }
+
+        public static string ui_error_tag_not_found
+        {
+            get
+            {
+                return ResourceManager.GetString("ui_error_tag_not_found", resourceCulture);
             }
         }
     }

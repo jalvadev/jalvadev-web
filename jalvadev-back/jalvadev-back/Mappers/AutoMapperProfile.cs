@@ -14,6 +14,10 @@ namespace jalvadev_back.Mappers
                 .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.About))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                 ;
+
+            CreateMap<Tag, TagDTO>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
         }
     }
 }
