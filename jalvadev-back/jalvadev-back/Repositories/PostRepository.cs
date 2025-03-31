@@ -22,7 +22,7 @@ namespace jalvadev_back.Repositories
         {
             try
             {
-                string query = "SELECT id, user_id, title, content, is_draft, creation_date, update_date FROM public.posts WHERE id = @Id;";
+                string query = "SELECT id, user_id as UserId, title, content, creation_date as CreationDate FROM public.posts WHERE id = @Id;";
 
                 var post = _connection.QueryFirstOrDefault<Post>(query, new { Id = postId });
 

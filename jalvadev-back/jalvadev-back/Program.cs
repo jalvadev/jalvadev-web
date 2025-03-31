@@ -17,6 +17,8 @@ builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IPostService,  PostService>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
 
 // CONFIGURATION: AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
