@@ -126,6 +126,9 @@
   <data name="ui_error_getting_post" xml:space="preserve">
     <value>Ha ocurrido un error al obtener el post.</value>
   </data>
+  <data name="ui_error_getting_post_list" xml:space="preserve">
+    <value>Ha ocurrido un error al obtener la lista de posts del usuario.</value>
+  </data>
   <data name="ui_error_getting_project" xml:space="preserve">
     <value>Ha ocurrido un error al obtener el proyecto</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="ui_error_getting_user" xml:space="preserve">
     <value>Ha ocurrido un error al obtener el usuario.</value>
+  </data>
+  <data name="ui_error_post_list_empty" xml:space="preserve">
+    <value>No se han podido recuperar posts para este usuario.</value>
   </data>
   <data name="ui_error_post_not_found" xml:space="preserve">
     <value>El post que busca no existe.</value>

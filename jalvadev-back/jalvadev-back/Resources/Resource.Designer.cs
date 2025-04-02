@@ -59,6 +59,14 @@ namespace jalvadev_back.Resources
             }
         }
 
+        public static string ui_error_getting_post_list
+        {
+            get
+            {
+                return ResourceManager.GetString("ui_error_getting_post_list", resourceCulture);
+            }
+        }
+
         public static string ui_error_getting_user
         {
             get
@@ -66,7 +74,14 @@ namespace jalvadev_back.Resources
                 return ResourceManager.GetString("ui_error_getting_user", resourceCulture);
             }
         }
-
+        public static string ui_error_post_list_empty
+        {
+            get
+            {
+                return ResourceManager.GetString("ui_error_post_list_empty", resourceCulture);
+            }
+        }
+        
         public static string ui_error_getting_tags
         {
             get

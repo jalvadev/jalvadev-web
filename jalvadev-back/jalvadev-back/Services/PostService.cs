@@ -12,13 +12,14 @@ namespace jalvadev_back.Services
         private readonly IPostRepository _postRepository;
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public PostService(IPostRepository postRepository, IUserRepository userRepository, IMapper mapper)
+        private readonly int _maxProducts;
+        public PostService(IPostRepository postRepository, IUserRepository userRepository, IMapper mapper, IConfiguration configuration)
         {
             _postRepository = postRepository;
             _userRepository = userRepository;
             _mapper = mapper;
+            _maxProducts = int.Parse(configuration["BaseConfiguration:Pagination"]);
         }
-
 
         public Result<PostDetailDTO> GetPostDetail(int id)
         {
@@ -41,5 +42,26 @@ namespace jalvadev_back.Services
 
             return Result<PostDetailDTO>.Success(postDetail);
         }
+
+        public Result<PagerDTO<PostMinimalDTO>> GetPostByPage(int userId, int page)
+        {
+            PagerDTO<PostMinimalDTO> result = new PagerDTO<PostMinimalDTO>();
+
+            int limit = _maxProducts;
+            int offset = (page - 1) * _maxProducts;
+
+            var postListResult = _postRepository.GetPostByUser(userId, limit, offset);
+            if(!postListResult.IsSuccess)
+                return Result<PagerDTO<PostMinimalDTO>>.Failure(postListResult.Message);
+
+            List<PostMinimalDTO> postMinimalDTOs = _mapper.Map<List<Post>, List<PostMinimalDTO>>(postListResult.Value);
+
+            result.Data = postMinimalDTOs;
+            result.NumOfItems = _maxProducts;
+            result.CurrentPage = page;
+
+            return Result<PagerDTO<PostMinimalDTO>>.Success(result);
+        }
+
     }
 }

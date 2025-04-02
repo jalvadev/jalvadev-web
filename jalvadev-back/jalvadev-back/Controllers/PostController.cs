@@ -24,5 +24,15 @@ namespace jalvadev_back.Controllers
 
             return Ok(postResult);
         }
+
+        [HttpGet("list/{page}")]
+        public IActionResult List(int page)
+        {
+            var postListResult = _postService.GetPostByPage(1, page);
+            if(!postListResult.IsSuccess)
+                return BadRequest(postListResult);
+
+            return Ok(postListResult);
+        }
     }
 }

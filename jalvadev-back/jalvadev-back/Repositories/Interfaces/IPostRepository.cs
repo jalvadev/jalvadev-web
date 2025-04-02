@@ -6,5 +6,7 @@ namespace jalvadev_back.Repositories.Interfaces
     public interface IPostRepository
     {
         Result<Post> GetPostById(int postId);
+
+        Result<List<Post>> GetPostByUser(int userId, int limit, int offset);
     }
 }
