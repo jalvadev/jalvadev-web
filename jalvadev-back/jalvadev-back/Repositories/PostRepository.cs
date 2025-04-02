@@ -62,5 +62,24 @@ namespace jalvadev_back.Repositories
                 return Result<List<Post>>.Failure(Resource.ui_error_getting_post_list);
             }
         }
+
+        public Result<int> GetNumberOfPages(int user, int limit)
+        {
+            try
+            {
+                string query = "SELECT COUNT(id) FROM posts WHERE user_id = @UserId";
+
+                var count = _connection.Query<int>(query, new { UserId = user }).First();
+
+                int totalPages = count == 0 ? 0 : (count / limit);
+
+                return Result<int>.Success(totalPages);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{Resource.api_error_bd_connection} - {ex.Message}");
+                return Result<int>.Failure(Resource.ui_error_getting_post_list);
+            }
+        }
     }
 }

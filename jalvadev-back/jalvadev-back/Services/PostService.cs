@@ -54,11 +54,16 @@ namespace jalvadev_back.Services
             if(!postListResult.IsSuccess)
                 return Result<PagerDTO<PostMinimalDTO>>.Failure(postListResult.Message);
 
+            var postPagesResult = _postRepository.GetNumberOfPages(userId, limit);
+            if(!postPagesResult.IsSuccess)
+                return Result<PagerDTO<PostMinimalDTO>>.Failure(postPagesResult.Message);
+
             List<PostMinimalDTO> postMinimalDTOs = _mapper.Map<List<Post>, List<PostMinimalDTO>>(postListResult.Value);
 
             result.Data = postMinimalDTOs;
-            result.NumOfItems = _maxProducts;
+            result.NumOfItems = limit;
             result.CurrentPage = page;
+            result.TotalPages = postPagesResult.Value;
 
             return Result<PagerDTO<PostMinimalDTO>>.Success(result);
         }
