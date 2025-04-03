@@ -7,7 +7,7 @@ namespace jalvadev_back.Repositories.Interfaces
     {
         Result<Post> GetPostById(int postId);
 
-        Result<List<Post>> GetPostByUser(int userId, int limit, int offset);
+        Result<List<Post>> GetPostByUser(int userId, int limit, int offset, List<int> categoryIds);
 
         Result<int> GetNumberOfPages(int user, int limit);
     }

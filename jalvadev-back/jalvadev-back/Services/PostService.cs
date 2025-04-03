@@ -43,14 +43,14 @@ namespace jalvadev_back.Services
             return Result<PostDetailDTO>.Success(postDetail);
         }
 
-        public Result<PagerDTO<PostMinimalDTO>> GetPostByPage(int userId, int page)
+        public Result<PagerDTO<PostMinimalDTO>> GetPostByPage(int userId, int page, List<int> categoryIds)
         {
             PagerDTO<PostMinimalDTO> result = new PagerDTO<PostMinimalDTO>();
 
             int limit = _maxProducts;
             int offset = (page - 1) * _maxProducts;
 
-            var postListResult = _postRepository.GetPostByUser(userId, limit, offset);
+            var postListResult = _postRepository.GetPostByUser(userId, limit, offset, categoryIds);
             if(!postListResult.IsSuccess)
                 return Result<PagerDTO<PostMinimalDTO>>.Failure(postListResult.Message);
 

@@ -1,4 +1,5 @@
-﻿using jalvadev_back.Services.Interfaces;
+﻿using jalvadev_back.Resources;
+using jalvadev_back.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace jalvadev_back.Controllers
@@ -26,9 +27,24 @@ namespace jalvadev_back.Controllers
         }
 
         [HttpGet("list/{page}")]
-        public IActionResult List(int page)
+        public IActionResult List(int page, string? categories = null)
         {
-            var postListResult = _postService.GetPostByPage(1, page);
+            List<int> categoryIds = null;
+
+            if (categories != null)
+            {
+                categoryIds = categories
+                    .Replace("[", "")
+                    .Replace("]", "")
+                    .Split(",")
+                    .Where(c => int.TryParse(c, out _))
+                    .Select(c => int.Parse(c)).ToList();
+
+                if (!categories.StartsWith('[') || !categories.EndsWith(']') || categoryIds == null || categoryIds.Count() == 0)
+                    return BadRequest(Resource.ui_error_category_filter_match);
+            }
+            
+            var postListResult = _postService.GetPostByPage(1, page, categoryIds);
             if(!postListResult.IsSuccess)
                 return BadRequest(postListResult);
 

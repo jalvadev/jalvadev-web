@@ -37,18 +37,39 @@ namespace jalvadev_back.Repositories
             }
         }
 
-        public Result<List<Post>> GetPostByUser(int userId, int limit, int offset)
+        public Result<List<Post>> GetPostByUser(int userId, int limit, int offset, List<int> categoryIds)
         {
             try
             {
                 string query = @"SELECT
-                                    id, title, creation_date as CreationDate 
-                                FROM posts
-                                WHERE 
-                                    user_id = @UserId 
-                                    AND is_draft = 'false'
-                                LIMIT @Limit
-                                OFFSET @Offset;";
+                                    P.id, title, creation_date as CreationDate 
+                                FROM posts P ";
+
+                if(categoryIds == null)
+                {
+                    query += @"WHERE 
+                            user_id = @UserId 
+                            AND is_draft = 'false'
+                         LIMIT @Limit OFFSET @Offset;";
+                }
+                else
+                {
+                    query += @"INNER JOIN post_tags PT 
+                                    ON P.id = PT.post_id
+                               WHERE PT.tag_id IN (";
+
+                    foreach (int categoryId in categoryIds)
+                        query += $"{categoryId},";
+
+                    query = query.Substring(0, query.Length - 1);
+
+                    query += @") 
+                               AND user_id = @UserId 
+                               AND is_draft = 'false'
+                         LIMIT @Limit OFFSET @Offset;";
+                }
+
+                
 
                 var posts = _connection.Query<Post>(query, new { UserId = userId, Limit = limit, Offset = offset }).ToList();
 
@@ -58,7 +79,7 @@ namespace jalvadev_back.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Resource.api_error_bd_connection} - {ex.Message}");
+                _logger.LogError($"{ Resource.api_error_bd_connection} - {ex.Message}");
                 return Result<List<Post>>.Failure(Resource.ui_error_getting_post_list);
             }
         }

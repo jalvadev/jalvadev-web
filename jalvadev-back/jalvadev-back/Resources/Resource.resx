@@ -123,6 +123,9 @@
   <data name="api_error_password_file_not_found" xml:space="preserve">
     <value>Error al cargar el archivo de contraseñas.</value>
   </data>
+  <data name="ui_error_category_filter_match" xml:space="preserve">
+    <value>El filtro de categorias no tiene el formato correcto. Por ejempo: [1, 2, 3].</value>
+  </data>
   <data name="ui_error_getting_post" xml:space="preserve">
     <value>Ha ocurrido un error al obtener el post.</value>
   </data>

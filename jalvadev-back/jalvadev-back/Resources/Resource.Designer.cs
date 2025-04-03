@@ -43,6 +43,14 @@ namespace jalvadev_back.Resources
             }
         }
 
+        public static string ui_error_category_filter_match
+        {
+            get
+            {
+                return ResourceManager.GetString("ui_error_category_filter_match", resourceCulture);
+            }
+        }
+
         public static string ui_error_getting_project
         {
             get

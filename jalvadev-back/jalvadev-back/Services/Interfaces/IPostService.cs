@@ -7,6 +7,6 @@ namespace jalvadev_back.Services.Interfaces
     {
         Result<PostDetailDTO> GetPostDetail(int id);
 
-        Result<PagerDTO<PostMinimalDTO>> GetPostByPage(int user, int page);
+        Result<PagerDTO<PostMinimalDTO>> GetPostByPage(int user, int page, List<int> categoryIds);
     }
 }
