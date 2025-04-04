@@ -37,6 +37,14 @@ services:
             watch:
                 - action: rebuild
                   path: .
+    frontend:
+        container_name: jalvadev_front
+        build:
+            context: ./jalvadev-front
+        ports:
+            - 4000:4000
+        depends_on:
+            - backend
 secrets:
     db-password:
         file: passwords.txt
