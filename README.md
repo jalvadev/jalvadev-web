@@ -18,22 +18,22 @@ Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los 
 
 ## Front
 
-[ ] - Servicio Http y control errores
-[ ] - Servicio mensajes
-[ ] - Loader
-[ ] - Landing
-  [ ] - Cargar datos usuario
-  [ ] - Carga de proyectos
-  [ ] - Carga de últimos 5 posts
+- [ ] Servicio Http y control errores
+- [ ] Servicio mensajes
+- [ ] Loader
+- [ ] Landing
+  - [ ] Cargar datos usuario
+  - [ ] Carga de proyectos
+  - [ ] Carga de últimos 5 posts
   
 ## Back v2
 
-[ ] - Login endpoint
-[ ] - Authorization
-[ ] - PUT perfil
-[ ] - POST post
-[ ] - PUT post
-[ ] - DELETE post
-[ ] - POST tag
-[ ] - PUT tag
-[ ] - DELETE tag
+- [ ] Login endpoint
+- [ ] Authorization
+- [ ] PUT perfil
+- [ ] POST post
+- [ ] PUT post
+- [ ] DELETE post
+- [ ] POST tag
+- [ ] PUT tag
+- [ ] DELETE tag
