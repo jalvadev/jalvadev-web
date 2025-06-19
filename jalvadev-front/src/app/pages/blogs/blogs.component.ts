@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-blogs',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.less'
 })
-export class BlogsComponent {
+export class BlogsComponent implements OnInit{
 
+  http: HttpService = inject(HttpService);
+
+  ngOnInit(): void {
+    this.http.get("http://localhost:8080/api/User");
+  }
 }
