@@ -12,7 +12,7 @@ docker compose build
 
 # Configuration
 
-Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los appsettings.json y el docker-compose.yml esperan leer ese archivo en esta carpeta.  [Pendiente de cambiar este sistema]
+Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los appsettings.json y el docker-compose.yml esperan leer ese archivo en esta carpeta.  **[Pendiente de cambiar este sistema]**
 
 # To Do
 
