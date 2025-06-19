@@ -25,7 +25,10 @@ Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los 
   - [ ] Cargar datos usuario
   - [ ] Carga de proyectos
   - [ ] Carga de últimos 5 posts
-  
+- [ ] Paginación de posts
+- [ ] Filtros paginación de posts
+- [ ] Detalle post
+
 ## Back v2
 
 - [ ] Login endpoint
