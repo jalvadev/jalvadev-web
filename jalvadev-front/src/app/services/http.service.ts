@@ -1,27 +1,35 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor(private translate: TranslateService) { }
+  constructor() { }
+
+  translate = inject(TranslateService);
 
   async get(url: string): Promise<any> {
     try{
       debugger;
       const response = await fetch(url);
       if(!response.ok)
-        return new Promise<any>((resolve, reject) => { resolve({ error: this.translate.instant("HTTP_KO") }) });
+        return new Promise<any>(async (resolve, reject) => { 
+          const msg = await firstValueFrom(this.translate.get("BASE_ERRORS.HTTP_KO"));
+          resolve({ error: msg}) 
+        });
 
       const data = await response.json();
       return data;
     }catch(error: any){
       console.log(error.message);
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>(async (resolve, reject) => {
+        const msg = await firstValueFrom(this.translate.get("BASE_ERRORS.HTTP_PROCESS_ERROR"));
+
         resolve({
-          error: this.translate.instant("HTTP_PROCESS_ERROR"),
+          error: msg,
           internalError: error.message
         })
       });
