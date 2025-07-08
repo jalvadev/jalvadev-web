@@ -13,7 +13,6 @@ export class BlogsComponent implements OnInit{
   http: HttpService = inject(HttpService);
 
   ngOnInit(): void {
-    debugger;
     this.http.get("http://localhost:8080/api/User");
   }
 }

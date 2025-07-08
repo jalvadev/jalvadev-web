@@ -21,10 +21,12 @@ export class MessagesComponent{
   }
 
   showMessage(message: string){
+    debugger;
     this.message = message;
 
     var container = this.elementRef.nativeElement.querySelector('div.message-container');
     
+    this.renderer.removeClass(container, "fade-out");
     this.renderer.addClass(container, "fade-in");
     this.hideMessage();
   }
