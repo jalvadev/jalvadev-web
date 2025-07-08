@@ -19,7 +19,7 @@ Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los 
 ## Front
 
 - [x] Servicio Http y control errores
-- [ ] i18n
+- [x] i18n
 - [ ] Servicio mensajes
 - [ ] Loader
 - [ ] Landing
