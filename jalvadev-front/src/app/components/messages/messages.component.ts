@@ -32,6 +32,7 @@ export class MessagesComponent implements OnInit {
     var container = this.elementRef.nativeElement.querySelector('div.message-container');
     
     setTimeout(() => {
+        this.renderer.addClass(container, "fade-out");
         this.renderer.removeClass(container, "fade-in");
     }, this.MILLISECONDS_TO_DISPLAY);
   }

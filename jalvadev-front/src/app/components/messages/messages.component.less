@@ -21,3 +21,25 @@
         opacity: 1;
     }
 }
+
+.fade-out{
+    opacity: 0;
+    display: none;
+    animation-name: fadeOutAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+
+@keyframes fadeOutAnimation {
+    0%{
+        opacity: 1;
+        display: block;
+    }
+
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
