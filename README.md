@@ -20,7 +20,7 @@ Es necesario agregar un passwords.txt en la carpeta principal del proyecto. Los 
 
 - [x] Servicio Http y control errores
 - [x] i18n
-- [ ] Servicio mensajes
+- [x] Servicio mensajes
 - [ ] Loader
 - [ ] Landing
   - [ ] Cargar datos usuario
