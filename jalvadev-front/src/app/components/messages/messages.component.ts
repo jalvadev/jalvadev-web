@@ -1,6 +1,4 @@
 import { Component, ElementRef, inject, Input, OnInit, Renderer2 } from '@angular/core';
-import { timeout } from 'rxjs';
-
 @Component({
   selector: 'app-messages',
   imports: [],
@@ -11,7 +9,7 @@ export class MessagesComponent implements OnInit {
 
   @Input() message!: string;
 
-  MILLISECONDS_TO_DISPLAY: number = 3000;
+  MILLISECONDS_TO_DISPLAY: number = 5000;
 
   elementRef = inject(ElementRef);
   renderer = inject(Renderer2);
@@ -25,12 +23,16 @@ export class MessagesComponent implements OnInit {
 
   showMessage(){
     var container = this.elementRef.nativeElement.querySelector('div.message-container');
-    this.renderer.setStyle(container, "display", "block");
+    
+    this.renderer.addClass(container, "fade-in");
+    this.hideMessage();
+  }
 
+  hideMessage(){
+    var container = this.elementRef.nativeElement.querySelector('div.message-container');
+    
     setTimeout(() => {
-        this.renderer.setStyle(container, "display", "none");
+        this.renderer.removeClass(container, "fade-in");
     }, this.MILLISECONDS_TO_DISPLAY);
-
-    debugger;
   }
 }

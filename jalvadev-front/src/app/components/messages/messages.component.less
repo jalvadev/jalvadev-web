@@ -1,3 +1,23 @@
 .message-container{
+    opacity: 0;
     display: none;
+}
+
+.fade-in {
+    display: block;
+    opacity: 1;
+    animation-name: fadeInAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+@keyframes fadeInAnimation {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
