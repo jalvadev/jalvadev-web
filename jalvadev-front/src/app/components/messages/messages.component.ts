@@ -17,11 +17,10 @@ export class MessagesComponent{
   renderer = inject(Renderer2);
 
   constructor(){
-    this.messagesService.eventMessage.subscribe((message: string) => { debugger; this.showMessage(message); });
+    this.messagesService.eventMessage.subscribe((message: string) => { this.showMessage(message); });
   }
 
   showMessage(message: string){
-    debugger;
     this.message = message;
 
     var container = this.elementRef.nativeElement.querySelector('div.message-container');
