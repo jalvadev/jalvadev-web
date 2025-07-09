@@ -4,9 +4,17 @@
 
 @background: #1a1a1a;
 @text: #f1faee;
-@highlight: #dfa05d;
+@highlight: #f9dc5c;
 @error: #ac5045;
 @success: #658761;
+
+/***BASE***/
+
+::selection{
+    background-color: @highlight;
+    color: @background;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: VT323, monospace;
@@ -24,4 +32,15 @@ li::marker {
 
 html, body{
     background-color: @background;
+}
+
+body{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/*Fonts*/
+.title{
+    font-family: VT323, monospace;
+    font-size: 42px;
 }
