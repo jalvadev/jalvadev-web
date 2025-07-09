@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+/***VARIABLES***/
+
+/*Colors*/
+
+@background: #1a1a1a;
+@text: #f1faee;
+@highlight: #dfa05d;
+@error: #ac5045;
+@success: #658761;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: VT323, monospace;
+}
+
+p, a, span {
+    font-family: "Xanh Mono", monospace;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, a, span, text-decoration-color,
+li::marker {
+    color: @text;
+}
+
+html, body{
+    background-color: @background;
+}
