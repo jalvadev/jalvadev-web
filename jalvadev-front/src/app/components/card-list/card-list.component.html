@@ -1,0 +1,6 @@
+<div>
+    <div *ngFor="let card of cardList; let i = index">
+        <img [src]="card.image" alt="card image">
+        <h3>{{ card.name }}</h3>
+    </div>
+</div>

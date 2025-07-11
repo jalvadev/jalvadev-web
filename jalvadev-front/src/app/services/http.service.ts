@@ -1,15 +1,27 @@
 import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { MessagesService } from './messages.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Project } from '../interfaces/project';
+import { ApiResponse } from '../interfaces/api.response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
+  apiURL = 'http://localhost:8080/api/'; // TODO: pasar a .env
+  options: { headers: HttpHeaders };
+  httpClient = inject(HttpClient);
   messageService = inject(MessagesService);
   translate = inject(TranslateService);
+
+  constructor(){
+    this.options = {
+      headers: new HttpHeaders()
+    };
+  }
 
   async get(url: string): Promise<any> {
     try{
@@ -35,5 +47,9 @@ export class HttpService {
         })
       });
     }
+  }
+
+  getProjects(userId: number): Observable<ApiResponse<Project[]>>{
+    return this.httpClient.get<ApiResponse<Project[]>>(`${this.apiURL}Project/user/${userId}`, this.options)
   }
 }
