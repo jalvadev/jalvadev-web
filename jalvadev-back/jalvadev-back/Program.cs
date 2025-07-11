@@ -59,6 +59,8 @@ if (app.Environment.IsDevelopment())
 
 if(app.Environment.IsStaging())
 {
+    app.UseCors("AllowSpecificOrigin");
+    Console.WriteLine("CORS 4200.");
     Console.WriteLine("Staging Env.");
 }
 
