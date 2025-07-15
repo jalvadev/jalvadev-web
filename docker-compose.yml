@@ -12,7 +12,7 @@ services:
             - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
             - POSTGRES_DB=jalvadev
         volumes:
-            - "C:/Data/jalvadev:/var/lib/postgresql/data"
+            - ${DB_VOLUME_PATH:-C:/Data/jalvadev}:/var/lib/postgresql/data
             - "./database/init.sql:/docker-entrypoint-initdb.d/init.sql"
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U jalvadev_admin -d jalvadev"]
