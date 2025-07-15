@@ -27,7 +27,7 @@ services:
         ports:
             - 8080:8080
         environment:
-            - DOTNET_ENVIRONMENT=Staging
+            - DOTNET_ENVIRONMENT=${DOTNET_ENVIRONMENT:-Staging}
         secrets:
             - db-password
         depends_on:
@@ -47,4 +47,4 @@ services:
             - backend
 secrets:
     db-password:
-        file: passwords.txt
+        file: ${DB_PASSWORD_FILE:-./passwords.txt}
