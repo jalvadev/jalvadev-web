@@ -43,6 +43,7 @@ builder.Services.AddSwaggerGen();
 // Service cors for development.
 builder.Services.AddCors(c => c.AddPolicy("AllowSpecificOrigin", builder =>
 {
+    builder.WithOrigins("http://localhost:4000").AllowAnyMethod().AllowAnyHeader();
     builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
 }));
 
