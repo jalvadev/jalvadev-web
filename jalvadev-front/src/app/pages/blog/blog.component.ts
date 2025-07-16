@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -8,5 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './blog.component.less'
 })
 export class BlogComponent {
-
+  @Input() id!: number;
+  
 }
