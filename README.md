@@ -29,8 +29,8 @@ Para producción es obligatorio y se espera tener un .env ya preparado de primer
 - [x] Servicio mensajes
 - [ ] Loader
 - [x] Landing
-  - [ ] Cargar datos usuario
-  - [ ] Carga de proyectos
+  - [x] Cargar datos usuario
+  - [x] Carga de proyectos
   - [ ] Carga de últimos 5 posts
 - [ ] Paginación de posts
 - [ ] Filtros paginación de posts

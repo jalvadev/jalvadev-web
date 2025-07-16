@@ -12,7 +12,5 @@ export class BlogsComponent implements OnInit{
 
   http: HttpService = inject(HttpService);
 
-  ngOnInit(): void {
-    this.http.get("http://localhost:8080/api/User");
-  }
+  ngOnInit(): void {}
 }
