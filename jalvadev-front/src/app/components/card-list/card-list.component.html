@@ -1,6 +1,10 @@
 <div>
-    <div *ngFor="let card of cardList; let i = index">
+    <div *ngFor="let card of cardList; let i = index" class="card">
         <img [src]="card.image" alt="card image">
-        <h3>{{ card.name }}</h3>
+        <h3>
+            <a href="{{card.link}}" target="_blank">
+                {{ card.name }}
+            </a>
+        </h3>
     </div>
 </div>

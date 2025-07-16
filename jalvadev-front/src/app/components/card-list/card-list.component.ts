@@ -13,7 +13,5 @@ export class CardListComponent implements OnInit {
   @Input() cardList!: Card[];
 
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {  }
 }

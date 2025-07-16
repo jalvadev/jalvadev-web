@@ -21,7 +21,6 @@ export class MessagesComponent{
   }
 
   showMessage(message: string){
-    debugger;
     this.message = message;
 
     var container = this.elementRef.nativeElement.querySelector('div.message-container');
