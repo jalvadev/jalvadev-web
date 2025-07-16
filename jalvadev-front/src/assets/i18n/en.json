@@ -1,5 +1,6 @@
 {
     "WELCOME": "Welcome to Jalvadev",
+    "UNDER_BUILDING": "En construcción",
     "BASE_ERRORS": {
         "HTTP_KO": "Error processing the call.",
         "HTTP_PROCESS_ERROR": "An error ocurred when attemp to make an http call."
