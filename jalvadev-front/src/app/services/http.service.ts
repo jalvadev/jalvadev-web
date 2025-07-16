@@ -51,6 +51,6 @@ export class HttpService {
   }
 
   getProjects(userId: number): Observable<ApiResponse<Project[]>>{
-    return this.httpClient.get<ApiResponse<Project[]>>(`${this.apiURL}Project/user/${userId}`, this.options)
+    return this.httpClient.get<ApiResponse<Project[]>>(`${this.apiURL}/Project/user/${userId}`, this.options)
   }
 }
