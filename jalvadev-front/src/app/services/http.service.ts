@@ -5,13 +5,14 @@ import { MessagesService } from './messages.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Project } from '../interfaces/project';
 import { ApiResponse } from '../interfaces/api.response';
+import { environment } from '../../environment.pro';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  apiURL = 'http://localhost:8080/api/'; // TODO: pasar a .env
+  apiURL = environment.apiUrl;
   options: { headers: HttpHeaders };
   httpClient = inject(HttpClient);
   messageService = inject(MessagesService);
